@@ -1,0 +1,23 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <h1 class='font-bold text-3xl mb-3'>Bands</h1>
+
+  <%= form_with(url: bands_path, method: :get, class: 'contents', data: { controller: 'search-form', turbo_frame: 'bands', turbo_action: 'advance' }) do |form| %>
+    <%= form.label :query, 'Search by a name', class: 'block mb-2' %>
+
+    <div class='flex space-x-3'>
+      <%= form.text_field :query, class: 'px-4 py-3 shadow rounded-md border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none', data: { action: 'input->search-form#search' } %>
+
+      <%= form.submit 'Search', class: 'px-4 py-3 font-medium bg-orange-300 text-neutral-900 rounded inline-flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-0 focus:ring-orange-100' %>
+    </div>
+  <% end %>
+
+  <div class='my-16'>
+    <%= render 'bands', bands: @bands %>
+  </div>
+
+  <%= link_to 'New band', new_band_path, class: 'px-4 py-4 font-medium bg-orange-300 text-neutral-900 rounded inline-flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-0 focus:ring-orange-100' %>
+</div>
