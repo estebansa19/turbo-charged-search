@@ -9,7 +9,7 @@
     <%= form.label :query, 'Search by a name', class: 'block mb-2' %>
 
     <div class='flex space-x-3'>
-      <%= form.text_field :query, class: 'px-4 py-3 shadow rounded-md border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none', data: { action: 'input->search-form#search' } %>
+      <%= form.text_field :query, class: 'px-4 py-3 shadow rounded-md border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none', data: { action: 'input->search-form#search' }, value: params[:query] %>
 
       <%= form.submit 'Search', class: 'px-4 py-3 font-medium bg-orange-300 text-neutral-900 rounded inline-flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-0 focus:ring-orange-100' %>
     </div>
